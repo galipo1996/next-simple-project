@@ -4,10 +4,8 @@ import { getToken } from 'next-auth/jwt'
 import { withAuth } from 'next-auth/middleware'
 import { NextResponse } from 'next/server'
 
-const redis = new Redis({
-  url: process.env.REDIS_URL,
-  token: process.env.REDIS_SECRET,
-})
+const redis = Redis.fromEnv()
+
 const rateLimit = new Ratelimit({
   redis,
   limiter: Ratelimit.slidingWindow(5, '1h'),
