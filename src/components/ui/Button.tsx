@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils'
 import { VariantProps, cva } from 'class-variance-authority'
-import React, { HTMLAttributes, forwardRef } from 'react'
+import React, { ButtonHTMLAttributes, HTMLAttributes, forwardRef } from 'react'
 import { Loader2 } from 'lucide-react'
 
 export const ButtonVariants = cva(
@@ -27,7 +27,7 @@ export const ButtonVariants = cva(
 )
 
 interface ButtonProps
-  extends HTMLAttributes<HTMLButtonElement>,
+  extends ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof ButtonVariants> {
   isLoading?: boolean
 }
