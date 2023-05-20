@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import Button from './Button'
 import { signIn } from 'next-auth/react'
+import { toast } from './Toast'
 
 interface SignInButtonProps {}
 
@@ -12,11 +13,11 @@ const SignInButton = ({}: SignInButtonProps) => {
     try {
       await signIn('google')
     } catch (error) {
-      // toast({
-      //   title: 'sign in error',
-      //   message: 'please try again later',
-      //   type: 'error',
-      // })
+      toast({
+        title: 'sign in error',
+        message: 'please try again later',
+        type: 'error',
+      })
     }
   }
   return (
